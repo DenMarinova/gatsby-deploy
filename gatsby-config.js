@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby WordPress Tutorial`,
-    description: `An example to learn how to source data from WordPress.`,
+    title: `NEWS`,
+    description: `News site`,
     author: `@gatsbyjs`,
   },
   plugins: [

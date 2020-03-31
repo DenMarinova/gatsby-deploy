@@ -24,7 +24,7 @@ export default ({ data }) => {
   )
 }
 
-export const pageQuery = graphql`
+export const postQuery = graphql`
   query {
     allWordpressPost(sort: {fields: [date]}) {
       edges {
@@ -33,6 +33,9 @@ export const pageQuery = graphql`
           excerpt
           slug
           id
+          featured_media {
+            source_url
+          }
         }
       }
     }

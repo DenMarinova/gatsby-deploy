@@ -38,7 +38,7 @@ import { graphql } from "gatsby"
 
 export default ({ data }) => {
   const post = data.allWordpressPost.edges[0].node
-  console.log(post)
+  console.log(data)
   return (
     <Layout>
       <div>
