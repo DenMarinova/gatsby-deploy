@@ -1,0 +1,36 @@
+.header {
+    padding: 1rem  3rem;
+    background: #2a388b;
+    margin-bottom: 1.45rem;
+}
+
+.title {
+    color: #ffffff;
+    font-size: 3rem;
+    text-decoration: none;
+    
+}
+
+.nav-list {
+    display: flex;
+    list-style-type: none;
+    margin: 1rem 0;
+}
+
+.nav-item {
+    color: #ffffffd9;
+    font-size: 1rem;
+    margin-right: 1.3rem;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    color: #a8b0dc;
+}
+
+.active-nav-item {
+    color: #a8b0dc;
+    border-bottom: 2px solid;
+ 
+}
+
