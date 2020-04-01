@@ -36,87 +36,44 @@
 
 const path = require(`path`)
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-
-
-//   return graphql(`
-//     {
-//       allWordpressPost(sort: { fields: [date] }) {
-//         edges {
-//           node {
-//             title
-//             excerpt
-//             content
-//             slug
-//           }
-//         }
-//       }
-//     }
-//   `).then(result => {
-//     result.data.allWordpressPost.edges.forEach(({ node }) => {
-//       createPage({
-//         path: node.slug,
-//         component: path.resolve(`./src/templates/post.js`),
-//         context: {
-//           // This is the $slug variable
-//           // passed to blog-post.js
-//           slug: node.slug,
-//         },
-//       })
-//     })
-//   })
-// }
-
-
-
-
-
-return graphql(`
+  const response = await graphql(`
 {
   allWordpressPost(sort: {fields: [date]}) {
     edges {
       node {
-        title
-        excerpt
         slug
-        id
       }
     }
   }
   allWordpressPage {
     edges {
       node {
-        content
-        title
         slug
       }
     }
   }
+}`)
+
+  response.data.allWordpressPost.edges.forEach(({ node }) => {
+    createPage({
+      path: node.slug,
+      component: path.resolve(`./src/templates/post.js`),
+      context: {
+        slug: node.slug,
+      },
+    })
+  })
+
+  response.data.allWordpressPage.edges.forEach(({ node }) => {
+    createPage({
+      path: node.slug,
+      component: path.resolve(`./src/templates/page.js`),
+      context: {
+        slug: node.slug,
+      },
+    })
+  })
 }
 
-`).then(result => {
-console.log(result);
-
-result.data.allWordpressPost.edges.forEach(({ node }) => {
-  createPage({
-    path: node.slug,
-    component: path.resolve(`./src/templates/post.js`),
-    context: { 
-      slug: node.slug,
-    },
-  })
-})
-
-result.data.allWordpressPage.edges.forEach(({ node }) => {
-  createPage({
-    path: node.slug,
-    component: path.resolve(`./src/templates/page.js`),
-    context: { 
-      slug: node.slug,
-    },
-  })
-})
-
-})
-}
