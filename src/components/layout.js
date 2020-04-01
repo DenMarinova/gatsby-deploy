@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import layoutStyles from"./layout.module.scss"
-import  "./layout.scss"
+//import  "./layout.scss"
 
 
 const Layout = ({ children }) => {
@@ -27,13 +27,8 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <div className={layoutStyles.container}
-        // style={{
-        //   margin: `0 auto`,
-        //   maxWidth: 960,
-        //   padding: `0 1.0875rem 1.45rem`,
-        // }}
-      >
+      <div className={layoutStyles.container}>
+        
       <Header siteTitle={data.site.siteMetadata.title} />
 
         <main className={layoutStyles.content}>{children}</main>

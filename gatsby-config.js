@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `NEWS`,
-    description: `News site`,
+    title: `Lilly's Blog`,
+    description: `Blog site`,
     author: `@gatsbyjs`,
   },
   plugins: [
@@ -56,7 +56,9 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-sass`
-  ],
+    `gatsby-plugin-sass`,
+    `gatsby-transformer-sharp`,
+     `gatsby-plugin-sharp`,
+  
+  ]
 }
-

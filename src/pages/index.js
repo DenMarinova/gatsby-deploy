@@ -2,24 +2,35 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
+import postsStyle from './index.module.scss'
+import Img from 'gatsby-image'
+
+
 
 
 export default ({ data }) => {
   return (
     <Layout>
       <SEO title="home" />
-      <h1>My WordPress Blog</h1>
-      <h4>Posts</h4>
+      
       {data.allWordpressPost.edges.map(({ node }) => (
-        <div key={node.id}>
+
+        <div className={postsStyle.posts} key={node.id}> 
+            
+ 
          <Link to={node.slug}>
-            <p>{node.title}</p>
+         {node.featured_media && 
+              <div>
+                  <Img resolutions={ node.featured_media.localFile.childImageSharp.resolutions }/> 
+            </div> 
+            } 
+            <h2>{node.title}</h2>
+            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
           </Link>
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+          <hr></hr>
         </div>
       ))}
 
-    <Link to="/page-2">Page 2</Link>
     </Layout>
   )
 }
@@ -34,7 +45,15 @@ export const postQuery = graphql`
           slug
           id
           featured_media {
-            source_url
+            localFile {
+              childImageSharp {
+                resolutions(width: 500, height: 200) {
+                  width
+                  height
+                  src
+                }
+              }
+            }
           }
         }
       }
