@@ -22,7 +22,7 @@ const Header = ({ siteTitle }) => (
       <nav>
         <ul className={headerStyle.navList}>
           <li>
-            <Link className={headerStyle.navItem} activeClassName={headerStyle.activeNavItem} to="/sample-page">Home</Link>
+            <Link className={headerStyle.navItem} activeClassName={headerStyle.activeNavItem} to="/home">Home</Link>
           </li>
           <li>
             <Link className={headerStyle.navItem} activeClassName={headerStyle.activeNavItem} to="/">Posts</Link>

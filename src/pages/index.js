@@ -5,9 +5,6 @@ import { Link, graphql } from "gatsby"
 import postsStyle from './index.module.scss'
 import Img from 'gatsby-image'
 
-
-
-
 export default ({ data }) => {
   return (
     <Layout>
@@ -15,15 +12,15 @@ export default ({ data }) => {
       
       {data.allWordpressPost.edges.map(({ node }) => (
 
-        <div className={postsStyle.posts} key={node.id}> 
-            
+        <div className={postsStyle.posts} key={node.id}>  
  
          <Link to={node.slug}>
-         {node.featured_media && 
+            {node.featured_media && 
               <div>
                   <Img resolutions={ node.featured_media.localFile.childImageSharp.resolutions }/> 
             </div> 
             } 
+            
             <h2>{node.title}</h2>
             <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
           </Link>
