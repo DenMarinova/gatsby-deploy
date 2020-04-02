@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-post-js","path":"/post-1","result":{"data":{"allWordpressPost":{"edges":[{"node":{"title":"Post 1","content":"\n<p>Here some new post!</p>\n"}}]}},"pageContext":{"slug":"post-1"}}}
