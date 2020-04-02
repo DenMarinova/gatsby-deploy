@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/Gatsby.js-Wordpress`,
   siteMetadata: {
     title: `Lilly's Blog`,
     description: `Blog site`,
@@ -58,7 +59,7 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
-     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sharp`,
   
   ]
 }
